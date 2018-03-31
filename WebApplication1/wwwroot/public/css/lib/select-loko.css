@@ -1,0 +1,18 @@
+#select-loko-data-list {
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  font-family: arial;
+  line-height: 20px;
+  padding: 0px;
+  position: absolute;
+}
+
+#select-loko-data-list > div {
+  cursor: pointer;
+  padding: 5px;
+}
+#select-loko-data-list > div:hover {
+  background-color: #cccccc;
+}
+
