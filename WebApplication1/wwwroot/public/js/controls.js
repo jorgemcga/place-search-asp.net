@@ -21,10 +21,10 @@ var Mapa = {
 
     infoMyPlace(coordenate)
     {
-        let infoWindow = Infowindow.create(coordenate);
+        let infoWindow = Infowindow.create(0, coordenate);
         infoWindow.setContent("Minha localização");
 
-        let marker = Marker.create(coordenate, "Meu Local");
+        let marker = Marker.create(0, coordenate, "Meu Local");
         Marker.eventOpenInfoWindow(marker, infoWindow);
     },
 
@@ -107,8 +107,9 @@ var ServicePlaces = {
 
         for (var i = 0; i < results.length; i++)
         {
+            results[i].id = i + 1;
             ServicePlaces.createMarker(results[i]);
-            submenu += ServicePlaces.addSubmenu(results[i].name);
+            submenu += ServicePlaces.addSubmenu(results[i]);
         }
 
         jQuery("#tot-place").html("("+results.length+")");
@@ -119,10 +120,10 @@ var ServicePlaces = {
     {
         let coordenate = place.geometry.location;
 
-        let infowindow = Infowindow.create(coordenate);
+        let infowindow = Infowindow.create(place.id, coordenate);
         infowindow.setContent(ServicePlaces.createInfoWindowContent(place));
 
-        let marker = Marker.create(coordenate, place.name, place.icon);
+        let marker = Marker.create(place.id, coordenate, place.name, place.icon);
 
         Marker.eventOpenInfoWindow(marker, infowindow);
     },
@@ -142,15 +143,25 @@ var ServicePlaces = {
         return tag;
     },
 
-    addSubmenu: function(placeName)
+    addSubmenu: function(place)
     {
-        return "<li class='nav-item'><a class='nav-link nav-side' onclick=''>"+placeName + "</a></li>";
+        return "<li class='nav-item'><a class='nav-link nav-side' onclick='ServicePlaces.goTo("+place.id+")'>"+place.name + "</a></li>";
+    },
+
+    goTo: function (id)
+    {
+        let marker = Marker.find(id);
+        let infoWindow = Infowindow.find(id);
+
+        Mapa.map.setCenter(marker.position);
+        infoWindow.open(Mapa.map, marker);
+        
     }
 };
 
 var Marker = {
 
-    create: function(coordenate, title, icon = null)
+    create: function(id, coordenate, title, icon = null)
     {
         let marker = null;
 
@@ -158,6 +169,7 @@ var Marker = {
             marker = new google.maps.Marker({
                 position: coordenate,
                 map: Mapa.map,
+                id: id,
                 title: title
             });
         }
@@ -172,6 +184,7 @@ var Marker = {
                position: coordenate,
                map: Mapa.map,
                title: title,
+               id: id,
                icon: image
            });
 
@@ -211,6 +224,15 @@ var Marker = {
         }
         Mapa.markers = [];
         return true;
+    },
+
+    find: function (id)
+    {
+        for (let i = 0; i < Mapa.markers.length; i++)
+        {
+            if (Mapa.markers[i].id == id) return Mapa.markers[i];
+        }
+        return false;
     },
 
     getEnd: function(lat, lng)
@@ -295,9 +317,10 @@ var Marker = {
 
 var Infowindow = {
 
-    create: function(coordenate)
+    create: function(id, coordenate)
     {
         let infoWindow = new google.maps.InfoWindow({
+            id: id,
             center: coordenate,
             position:coordenate,
         });
@@ -305,18 +328,28 @@ var Infowindow = {
         return infoWindow;
     },
 
+    find: function (id)
+    {
+        for (let i = 0; i < Mapa.infoWindows.length; i++)
+        {
+            if (Mapa.infoWindows[i].id == id) return Mapa.infoWindows[i];
+        }
+        return false;
+    },
+
     removeAll: function () {
-        let c = Mapa.infoWindowsPo.length;
+        let c = Mapa.infoWindows.length;
         for (let i = 0; i < c; i++) {
-            //alert(Mapa.infoWindowsPo[i].id);
+            //alert(Mapa.infoWindows[i].id);
         }
     },
 
     remove: function (id) {
-        let c = Mapa.infoWindowsPo.length;
+        let c = Mapa.infoWindows.length;
         for (let i = 0; i < c; i++) {
-            if (Mapa.infoWindowsPo[i].id == id) {
-                Mapa.infoWindowsPo[i].close();
+            if (Mapa.infoWindows[i].id == id)
+            {
+                Mapa.infoWindows[i].close();
             }
         }
     },

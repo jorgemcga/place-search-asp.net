@@ -1,0 +1,11 @@
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\bin\Debug\netcoreapp2.0\PlaceSearch.deps.json
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\bin\Debug\netcoreapp2.0\PlaceSearch.runtimeconfig.json
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\bin\Debug\netcoreapp2.0\PlaceSearch.runtimeconfig.dev.json
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\bin\Debug\netcoreapp2.0\PlaceSearch.dll
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\bin\Debug\netcoreapp2.0\PlaceSearch.pdb
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.csprojResolveAssemblyReference.cache
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.AssemblyInfoInputs.cache
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.AssemblyInfo.cs
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.dll
+C:\Users\Jorge\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.0\PlaceSearch.pdb

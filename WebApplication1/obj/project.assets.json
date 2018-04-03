@@ -12542,11 +12542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\PlaceSearch.csproj",
+      "projectUniqueName": "c:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\PlaceSearch.csproj",
       "projectName": "PlaceSearch",
-      "projectPath": "C:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\PlaceSearch.csproj",
+      "projectPath": "c:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\PlaceSearch.csproj",
       "packagesPath": "C:\\Users\\Jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "c:\\Users\\Jorge\\source\\repos\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
